@@ -38,16 +38,15 @@ public class GridViewController implements EventHandler<MouseEvent>, ObjectPool 
 			
 			statusView = (StatusView) getObject("status");
 			
-			if(model.getTurn() == 9) {
-				statusView.update(model.getNoWinnerString());
-				
-			}else if(model.getWinner() == null) {
+			if(model.getWinner() == null) {
 				model.switchPlayer();
 				statusView.update(model.getTurnString());
-			
+				
 			}else if(model.getWinner() != null){
 				statusView.update(model.getWinnerString());
 		
+			}else if(model.getTurn() == 9) {
+				statusView.update(model.getNoWinnerString());
 			}
 			
 			System.out.println("Winner " + model.getWinner()+"Turn: " + model.getTurn());	
